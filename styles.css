@@ -151,19 +151,6 @@ nav.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-6px) rotate(-
   text-transform: uppercase;
   margin-bottom: 2.5rem;
 }
-.hero-headline-wrap {
-  display: flex;
-  align-items: flex-start;
-  gap: 2.5rem;
-  margin-bottom: 4rem;
-}
-.hero-logo-inline {
-  width: 110px;
-  height: auto;
-  filter: brightness(0);
-  margin-top: 0.6rem;
-  flex-shrink: 0;
-}
 .hero h1 {
   font-size: clamp(2.75rem, 5.6vw, 5.75rem);
   font-weight: 800;
@@ -173,16 +160,6 @@ nav.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-6px) rotate(-
   max-width: 900px;
 }
 .hero h1 .thin { font-weight: 300; }
-.hero h1 .muted { color: #bbb; font-weight: 800; }
-.hero-bottom {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--border);
-}
 .hero-sub {
   font-size: 18px;
   font-weight: 400;
@@ -258,34 +235,29 @@ nav.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-6px) rotate(-
   margin-bottom: 0.4rem;
 }
 
-/* ── LANDSTAR NETWORK ── */
-.network { background: var(--white); border-bottom: 1px solid var(--border); }
-.network-head {
-  display: flex;
-  align-items: flex-start;
-  gap: 2.5rem;
-  padding: calc(var(--section-y) * 0.7) var(--pad-x) 3.5rem;
-}
-.network-badge {
-  width: 96px;
-  height: 96px;
+/* ── AGENCY HERO (Landstar badge + blue rule + who we are) ── */
+.hero-agency { min-height: auto; padding-top: 11rem; padding-bottom: 4.5rem; }
+.hero-agency-head { display: flex; align-items: flex-start; gap: 3rem; }
+.hero-badge {
+  width: 128px;
+  height: 128px;
   flex-shrink: 0;
   mix-blend-mode: multiply;
-  margin-top: -0.5rem;
+  margin-top: -0.75rem;
 }
-.network-copy { border-left: 2px solid var(--landstar-blue); padding-left: 2rem; }
-.network-copy .section-eyebrow { margin-bottom: 1rem; }
-.network-title {
-  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-  color: var(--black);
-  max-width: 720px;
-  margin-bottom: 1rem;
+.hero-agency-copy { border-left: 2px solid var(--landstar-blue); padding-left: 2.5rem; }
+.hero-agency .hero-tag { margin-bottom: 1.75rem; }
+.hero-agency h1 {
+  font-size: clamp(2.5rem, 4.8vw, 4.75rem);
+  line-height: 1.02;
+  max-width: 980px;
+  margin-bottom: 1.75rem;
 }
-.network-body { font-size: 17px; color: var(--body); line-height: 1.75; max-width: 640px; }
-.network .stats-band { border-top: 1px solid var(--border); }
+.hero-agency .hero-sub { max-width: 640px; margin-bottom: 2.25rem; }
+.hero-agency .hero-proof { margin-top: 4rem; }
+
+/* ── LANDSTAR NETWORK STATS ── */
+.network { background: var(--white); border-bottom: 1px solid var(--border); }
 
 /* ── SHARED SECTION TYPE ── */
 .section-eyebrow {
@@ -947,7 +919,6 @@ footer a:focus-visible {
     color: var(--black);
   }
   .hero { min-height: auto; padding: 8rem var(--pad-x) 4.5rem; }
-  .hero-headline-wrap { margin-bottom: 3rem; }
   .hvhr-section { grid-template-columns: 1fr; }
   .hvhr-left, .hvhr-right { padding: var(--section-y) var(--pad-x); }
   .hvhr-specs { grid-template-columns: 1fr 1fr; }
@@ -960,7 +931,9 @@ footer a:focus-visible {
   .process-step { padding-bottom: 2rem; }
   .faq-grid { grid-template-columns: 1fr; gap: 2rem; }
   .hero-proof { grid-template-columns: 1fr; }
-  .network-head { gap: 1.75rem; }
+  .hero-agency { padding-top: 8rem; }
+  .hero-agency-head { gap: 2rem; }
+  .hero-badge { width: 96px; height: 96px; }
   .why-grid { grid-template-columns: 1fr; gap: 3rem; }
   #contact { grid-template-columns: 1fr; }
   .contact-left { padding: var(--section-y) var(--pad-x); border-right: none; border-bottom: 1px solid var(--border); }
@@ -972,11 +945,8 @@ footer a:focus-visible {
   :root { --pad-x: 1.25rem; --section-y: 4.5rem; }
   .hero { padding: 7rem var(--pad-x) 3.5rem; }
   .hero-tag { margin-bottom: 2rem; line-height: 1.8; }
-  .hero-headline-wrap { flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem; }
-  .hero-logo-inline { width: 64px; margin-top: 0; }
   .hero h1 { font-size: clamp(2.1rem, 9.5vw, 2.8rem); overflow-wrap: break-word; }
   .hero-sub { font-size: 16px; }
-  .hero-bottom { gap: 1.75rem; padding-top: 2rem; }
   .hero-cta-group { flex-wrap: wrap; width: 100%; }
   .btn-black, .btn-outline, .btn-on-dark, .services-cta { white-space: normal; padding: 0.95rem 1.5rem; text-align: center; }
   .hero-cta-group .btn-black, .hero-cta-group .btn-outline { flex: 1 1 auto; }
@@ -989,9 +959,12 @@ footer a:focus-visible {
   .industry-grid { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: 1fr; }
   .process-step, .process-step + .process-step { padding: 1.75rem 0; border-left: none; border-bottom: 1px solid var(--border); }
-  .network-head { flex-direction: column; padding-bottom: 2.5rem; }
-  .network-badge { width: 72px; height: 72px; margin-left: -6px; }
-  .network-copy { padding-left: 1.25rem; }
+  .hero-agency { padding-top: 6.5rem; padding-bottom: 3rem; }
+  .hero-agency-head { flex-direction: column; gap: 1.25rem; }
+  .hero-badge { width: 76px; height: 76px; margin: 0 0 0 -6px; }
+  .hero-agency-copy { padding-left: 1.25rem; }
+  .hero-agency h1 { font-size: clamp(2rem, 8.5vw, 2.6rem); }
+  .hero-agency .hero-proof { margin-top: 2.5rem; }
   .faq-item p { padding-right: 0; }
   .service-card { padding: 2rem 1.5rem 2.25rem; }
   .services-cta-row { margin-top: 1.5rem; }
