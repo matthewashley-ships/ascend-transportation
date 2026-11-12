@@ -32,6 +32,21 @@ body {
   line-height: 1.6;
 }
 
+/* Skip link: hidden until focused by keyboard */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 1000;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.75rem 1.25rem;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
 /* ── NAV ── */
 nav {
   position: fixed;
@@ -868,3 +883,24 @@ footer a:focus-visible {
   .nav-brand-sub { font-size: 8px; letter-spacing: 0.1em; }
   .nav-cta { padding: 0.5rem 0.8rem; font-size: 12px; }
 }
+
+/* ── 404 ── */
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem var(--pad-x);
+  max-width: 760px;
+}
+.not-found-brand { margin-bottom: 2.5rem; }
+.not-found h1 {
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.not-found p { font-size: 17px; color: var(--body); margin-bottom: 2rem; }
