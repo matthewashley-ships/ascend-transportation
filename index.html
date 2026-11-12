@@ -278,57 +278,123 @@
   </div>
   <div class="contact-right fade-up" style="transition-delay:.15s">
     <form class="contact-form" id="contact-form" action="https://formspree.io/f/maqvlqqe" method="POST">
-      <div class="form-row">
-        <div class="form-field">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="first_name" required />
-        </div>
-        <div class="form-field">
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="last_name" required />
-        </div>
+      <input type="hidden" name="_subject" value="Quote request: ascend-transportation.com" />
+      <!-- Spam trap: hidden from people, filled in by bots. Formspree drops submissions that include it. -->
+      <div class="form-trap" aria-hidden="true">
+        <label for="gotcha">Leave this field empty</label>
+        <input type="text" id="gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
       </div>
-      <div class="form-row">
-        <div class="form-field">
-          <label for="company">Company</label>
-          <input type="text" id="company" name="company" required />
+
+      <p class="form-note">Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
+
+      <fieldset class="form-group">
+        <legend>Shipment</legend>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="origin">Origin <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="origin" name="origin" required autocomplete="off" placeholder="City, ST or ZIP" maxlength="120" />
+          </div>
+          <div class="form-field">
+            <label for="destination">Destination <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="destination" name="destination" required autocomplete="off" placeholder="City, ST or ZIP" maxlength="120" />
+          </div>
         </div>
-        <div class="form-field">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required />
+        <div class="form-row">
+          <div class="form-field">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service">
+              <option value="">Select...</option>
+              <option>HVHR High-Value Truckload</option>
+              <option>Truckload Van</option>
+              <option>Less-Than-Truckload</option>
+              <option>Cross-Border Mexico</option>
+              <option>Expedited</option>
+              <option>Cold Chain</option>
+              <option>Intermodal</option>
+              <option>Not Sure</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="equipment">Equipment <span class="req" aria-hidden="true">*</span></label>
+            <select id="equipment" name="equipment" required>
+              <option value="">Select...</option>
+              <option>Dry Van</option>
+              <option>Refrigerated (Reefer)</option>
+              <option>Flatbed / Step Deck</option>
+              <option>Straight Truck / Cargo Van</option>
+              <option>LTL / Partial</option>
+              <option>Not Sure</option>
+              <option>Other (describe below)</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="form-field">
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" />
+        <div class="form-row">
+          <div class="form-field">
+            <label for="pickup_date">Pickup Date <span class="req" aria-hidden="true">*</span></label>
+            <input type="date" id="pickup_date" name="pickup_date" required />
+          </div>
+          <div class="form-field">
+            <label for="weight">Weight (lbs)</label>
+            <input type="number" id="weight" name="weight_lbs" min="1" max="200000" step="1" inputmode="numeric" placeholder="e.g. 18000" />
+          </div>
         </div>
-        <div class="form-field">
-          <label for="service">Service Needed</label>
-          <select id="service" name="service">
-            <option value="">Select...</option>
-            <option>HVHR High-Value Truckload</option>
-            <option>Truckload Van</option>
-            <option>Less-Than-Truckload</option>
-            <option>Cross-Border Mexico</option>
-            <option>Expedited</option>
-            <option>Cold Chain</option>
-            <option>Intermodal</option>
-            <option>Not Sure</option>
-          </select>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="commodity">Commodity</label>
+            <input type="text" id="commodity" name="commodity" maxlength="120" placeholder="e.g. Server racks" />
+          </div>
+          <div class="form-field">
+            <label for="value">Estimated Cargo Value</label>
+            <select id="value" name="cargo_value">
+              <option value="">Select...</option>
+              <option>Under $100K</option>
+              <option>$100K to $250K</option>
+              <option>$250K to $1M</option>
+              <option>Over $1M</option>
+              <option>Prefer to discuss</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="form-full">
-        <label for="route">Origin → Destination</label>
-        <input type="text" id="route" name="route" placeholder="e.g. San Jose, CA → Dallas, TX" />
-      </div>
-      <div class="form-full">
-        <label for="details">Freight Details</label>
-        <textarea id="details" name="details" placeholder="Cargo type, estimated value, weight, dimensions, frequency, any security requirements..."></textarea>
-      </div>
-      <button type="submit" class="form-submit">Send Request →</button>
+        <div class="form-full">
+          <label for="details">Additional Details</label>
+          <textarea id="details" name="details" maxlength="3000" placeholder="Dimensions, pallet count, frequency, accessorials, security requirements..."></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <legend>Contact</legend>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">First Name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="fname" name="first_name" required autocomplete="given-name" maxlength="80" />
+          </div>
+          <div class="form-field">
+            <label for="lname">Last Name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="lname" name="last_name" required autocomplete="family-name" maxlength="80" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="company">Company <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="company" name="company" required autocomplete="organization" maxlength="120" />
+          </div>
+          <div class="form-field">
+            <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email" maxlength="160" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="40" />
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-status" id="form-status" role="alert" hidden></div>
+      <button type="submit" class="form-submit">Request a Quote →</button>
     </form>
-    <div class="form-success" id="form-success">
+    <div class="form-success" id="form-success" tabindex="-1">
       <h3>Request Received</h3>
       <p>An agent will be in touch within one business day.</p>
     </div>
@@ -399,13 +465,85 @@
     }, { threshold: 0.08 });
     fadeEls.forEach(el => observer.observe(el));
   }
+  // Quote form: accessible inline validation, then submit to Formspree.
+  // Without JS the form still posts normally and the browser validates it.
   const form = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
+  const status = document.getElementById('form-status');
+  const submitBtn = form.querySelector('.form-submit');
+  const submitLabel = submitBtn.textContent;
+  form.noValidate = true;
+
+  // Earliest pickup date is today (local time).
+  const pickup = document.getElementById('pickup_date');
+  const now = new Date();
+  pickup.min = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+
+  const fieldLabel = (el) => {
+    const text = form.querySelector('label[for="' + el.id + '"]').firstChild.textContent.trim();
+    return text.charAt(0) + text.slice(1).toLowerCase();
+  };
+  const messageFor = (el) => {
+    const v = el.validity;
+    if (v.valueMissing) return el.tagName === 'SELECT' ? 'Please choose ' + fieldLabel(el).toLowerCase() + '.' : fieldLabel(el) + ' is required.';
+    if (v.typeMismatch && el.type === 'email') return 'Enter a valid email address, like name@company.com.';
+    if (v.rangeUnderflow && el.type === 'date') return 'Pickup date can\'t be in the past.';
+    if (v.rangeUnderflow || v.rangeOverflow || v.stepMismatch || v.badInput) return 'Enter a whole number between ' + el.min + ' and ' + el.max + '.';
+    if (v.tooLong) return 'Please shorten this to ' + el.maxLength + ' characters or fewer.';
+    return el.validationMessage;
+  };
+  const showError = (el) => {
+    const wrap = el.closest('.form-field, .form-full');
+    let msg = wrap.querySelector('.field-error');
+    if (!msg) {
+      msg = document.createElement('p');
+      msg.className = 'field-error';
+      msg.id = el.id + '-error';
+      wrap.appendChild(msg);
+    }
+    msg.textContent = messageFor(el);
+    wrap.classList.add('invalid');
+    el.setAttribute('aria-invalid', 'true');
+    el.setAttribute('aria-describedby', msg.id);
+  };
+  const clearError = (el) => {
+    const wrap = el.closest('.form-field, .form-full');
+    const msg = wrap && wrap.querySelector('.field-error');
+    if (msg) msg.remove();
+    if (wrap) wrap.classList.remove('invalid');
+    el.removeAttribute('aria-invalid');
+    el.removeAttribute('aria-describedby');
+  };
+  const fields = Array.from(form.querySelectorAll('input:not([type=hidden]):not([name=_gotcha]), select, textarea'));
+  fields.forEach((el) => {
+    // Re-check a field once the user leaves it, but only after it has been flagged.
+    el.addEventListener('blur', () => { if (el.hasAttribute('aria-invalid')) { el.checkValidity() ? clearError(el) : showError(el); } });
+    el.addEventListener('input', () => { if (el.hasAttribute('aria-invalid') && el.checkValidity()) clearError(el); });
+  });
+  // Builds the error message from text nodes so server-provided text can't inject markup.
+  const showStatus = (message) => {
+    status.textContent = message + ' Please try again, or call us at ';
+    const tel = document.createElement('a');
+    tel.href = 'tel:4082324800';
+    tel.textContent = '408.232.4800';
+    status.append(tel, '.');
+    status.hidden = false;
+  };
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('.form-submit');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
+    status.hidden = true;
+    // Trim stray whitespace so "   " doesn't count as a filled-in field.
+    fields.forEach((el) => { if (el.type === 'text' || el.type === 'email' || el.type === 'tel') el.value = el.value.trim(); });
+    const invalid = fields.filter((el) => !el.checkValidity());
+    fields.forEach(clearError);
+    if (invalid.length) {
+      invalid.forEach(showError);
+      invalid[0].focus();
+      return;
+    }
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
     try {
       const res = await fetch(form.action, {
         method: 'POST',
@@ -413,16 +551,24 @@
         headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
-        form.style.display = 'none';
+        form.hidden = true;
         success.style.display = 'block';
-      } else {
-        btn.textContent = 'Error. Try again.';
-        btn.disabled = false;
+        success.focus();
+        return;
       }
-    } catch {
-      btn.textContent = 'Error. Try again.';
-      btn.disabled = false;
+      let detail = '';
+      try {
+        const data = await res.json();
+        if (data && Array.isArray(data.errors)) detail = data.errors.map((x) => x.message).join(' ');
+      } catch (_) { /* non-JSON error body */ }
+      console.error('Quote form submission failed', res.status, detail);
+      showStatus(detail ? 'We couldn\'t send your request (' + detail.replace(/\.$/, '') + ').' : 'We couldn\'t send your request.');
+    } catch (err) {
+      console.error('Quote form network error', err);
+      showStatus('We couldn\'t reach our server. Check your connection.');
     }
+    submitBtn.textContent = submitLabel;
+    submitBtn.disabled = false;
   });
 </script>
 </body>
