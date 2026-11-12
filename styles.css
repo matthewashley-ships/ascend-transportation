@@ -237,13 +237,12 @@ nav.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-6px) rotate(-
 
 /* ── AGENCY HERO (Landstar badge + blue rule + who we are) ── */
 .hero-agency { min-height: auto; padding-top: 11rem; padding-bottom: 4.5rem; }
-.hero-agency-head { display: flex; align-items: flex-start; gap: 3rem; }
+.hero-agency-head { display: flex; align-items: center; gap: 3.5rem; }
 .hero-badge {
-  width: 128px;
-  height: 128px;
+  width: 178px;
+  height: auto;
   flex-shrink: 0;
   mix-blend-mode: multiply;
-  margin-top: -0.75rem;
 }
 .hero-agency-copy { border-left: 2px solid var(--landstar-blue); padding-left: 2.5rem; }
 .hero-agency .hero-tag { margin-bottom: 1.75rem; }
@@ -933,7 +932,7 @@ footer a:focus-visible {
   .hero-proof { grid-template-columns: 1fr; }
   .hero-agency { padding-top: 8rem; }
   .hero-agency-head { gap: 2rem; }
-  .hero-badge { width: 96px; height: 96px; }
+  .hero-badge { width: 132px; }
   .why-grid { grid-template-columns: 1fr; gap: 3rem; }
   #contact { grid-template-columns: 1fr; }
   .contact-left { padding: var(--section-y) var(--pad-x); border-right: none; border-bottom: 1px solid var(--border); }
@@ -960,8 +959,8 @@ footer a:focus-visible {
   .process-steps { grid-template-columns: 1fr; }
   .process-step, .process-step + .process-step { padding: 1.75rem 0; border-left: none; border-bottom: 1px solid var(--border); }
   .hero-agency { padding-top: 6.5rem; padding-bottom: 3rem; }
-  .hero-agency-head { flex-direction: column; gap: 1.25rem; }
-  .hero-badge { width: 76px; height: 76px; margin: 0 0 0 -6px; }
+  .hero-agency-head { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .hero-badge { width: 112px; }
   .hero-agency-copy { padding-left: 1.25rem; }
   .hero-agency h1 { font-size: clamp(2rem, 8.5vw, 2.6rem); }
   .hero-agency .hero-proof { margin-top: 2.5rem; }
