@@ -457,6 +457,13 @@ nav.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-6px) rotate(-
   text-transform: uppercase;
   color: var(--mid-gray);
 }
+.stats-source {
+  padding: 1rem var(--pad-x) 1.25rem;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--mid-gray);
+  border-bottom: 1px solid var(--border);
+}
 
 /* ── SERVICES ── */
 #services { padding: var(--section-y) var(--pad-x); background: var(--off-white); }
